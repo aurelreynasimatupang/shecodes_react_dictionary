@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+
+h1 {
+  text-align: center;
+}
+
+.footer {
+  margin: 25px;
+}
+
+.submitbtn {
+  margin: 5px;
+}
