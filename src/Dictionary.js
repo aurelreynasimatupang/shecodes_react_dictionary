@@ -4,14 +4,14 @@ import Definition from "./Definition";
 
 export default function Dictionary() {
   const [word, setWord] = useState("");
-  const [defi, setDefi] = useState({});
+  const [defi, setDefinition] = useState({});
 
   function handleKeywordChange(event) {
     setWord(event.target.value);
   }
 
   function showDefi(response) {
-    setDefi({
+    setDefinition({
       word: response.data[0].word,
       phonetics: response.data[0].phonetics,
       meanings: response.data[0].meanings,
