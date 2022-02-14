@@ -11,12 +11,11 @@ export default function Dictionary() {
   }
 
   function showDefi(response) {
-    console.log(response.data[0]);
-    /*setDefi({
+    setDefi({
       word: response.data[0].word,
-      pronounce: response.data[0].phonetics[0].text,
-      definition: response.data[0].meanings[0].definitions,
-    });*/
+      phonetics: response.data[0].phonetics,
+      meanings: response.data[0].meanings,
+    });
   }
 
   function submit(event) {
