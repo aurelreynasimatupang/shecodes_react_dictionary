@@ -1,6 +1,13 @@
 import React from "react";
 
 export default function Meaning(param) {
+  function Example(param) {
+    console.log(param.eg);
+    if (param.eg !== undefined) {
+      return <i>"{param.eg}"</i>;
+    }
+    return <i></i>;
+  }
   return (
     <div className="Meaning">
       <h3>{param.meaning.partOfSpeech}</h3>
@@ -8,11 +15,11 @@ export default function Meaning(param) {
         {param.meaning.definitions.map(function (item, key) {
           return (
             <div>
-              <li>
+              <li key={key}>
                 {item.definition}
                 <br />
                 <br />
-                <i>"{item.example}"</i>
+                <Example eg={item.example} />
               </li>
               <br />
               <div className="container">
