@@ -24,7 +24,7 @@ export default function Meaning(param) {
               <div className="container">
                 <div className="row">
                   {item.synonyms.map(function (item, key) {
-                    return <div className="synonym col-3">{item}</div>;
+                    return <div className="synonym col-4">{item}</div>;
                   })}
                 </div>
               </div>

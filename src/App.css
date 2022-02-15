@@ -81,7 +81,7 @@ i {
 .synonym {
   padding: 1px;
   text-align: center;
-  margin: 2px;
+  margin: 3px 0px;
   color: darkcyan;
   font-weight: 500;
   border: 2px solid rgb(188, 183, 183);
@@ -91,4 +91,19 @@ i {
 .synonym:hover {
   background-color: #f5f9f9;
   cursor: pointer;
+}
+
+.listen {
+  border: 2px solid darkcyan;
+  border-radius: 20px;
+  padding: 5px 10px;
+  color: darkcyan;
+  text-decoration: none;
+  transition: 300ms ease;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.listen:hover {
+  background-color: rgb(240, 246, 246);
 }
