@@ -11,6 +11,7 @@ export default function Dictionary() {
   }
 
   function showDefi(response) {
+    console.log(response.data[0]);
     setDefinition({
       word: response.data[0].word,
       phonetics: response.data[0].phonetics,

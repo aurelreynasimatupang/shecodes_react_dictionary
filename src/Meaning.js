@@ -7,12 +7,22 @@ export default function Meaning(param) {
       <ul>
         {param.meaning.definitions.map(function (item, key) {
           return (
-            <li>
-              {item.definition}
+            <div>
+              <li>
+                {item.definition}
+                <br />
+                <br />
+                <i>"{item.example}"</i>
+              </li>
               <br />
-              <br />
-              <i>"{item.example}"</i>
-            </li>
+              <div className="container">
+                <div className="row">
+                  {item.synonyms.map(function (item, key) {
+                    return <div className="synonym col-3">{item}</div>;
+                  })}
+                </div>
+              </div>
+            </div>
           );
         })}
       </ul>
