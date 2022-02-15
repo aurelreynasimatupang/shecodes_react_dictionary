@@ -1,10 +1,9 @@
 import React from "react";
 
 export default function Meaning(param) {
-  function Example(param) {
-    console.log(param.eg);
-    if (param.eg !== undefined) {
-      return <i>"{param.eg}"</i>;
+  function Example(ex) {
+    if (ex.eg !== undefined) {
+      return <i>"{ex.eg}"</i>;
     }
     return <i></i>;
   }

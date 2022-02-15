@@ -1,13 +1,15 @@
 import React from "react";
 import Meaning from "./Meaning";
+import Phonetics from "./Phonetics";
 
 export default function Definition(param) {
-  console.log(param.word);
   if (Object.keys(param.word).length !== 0) {
     return (
       <div className="Definition">
         <h2>{param.word.word}</h2>
-        {param.word.phonetics[0].text}
+        {param.word.phonetics.map(function (item, key) {
+          return <Phonetics phone={item} />;
+        })}
         <div className="Speeches">
           {param.word.meanings.map(function (item, key) {
             return <Meaning meaning={item} />;
