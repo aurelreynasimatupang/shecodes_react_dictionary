@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Definition from "./Definition";
+import Gallery from "./Gallery";
 
 export default function Dictionary() {
   const [word, setWord] = useState("");
@@ -11,7 +12,6 @@ export default function Dictionary() {
   }
 
   function showDefi(response) {
-    console.log(response.data[0]);
     setDefinition({
       word: response.data[0].word,
       phonetics: response.data[0].phonetics,
@@ -33,6 +33,7 @@ export default function Dictionary() {
         <input type="submit" className="submitbtn" />
       </form>
       <Definition word={defi} />
+      <Gallery word={defi} />
     </div>
   );
 }
