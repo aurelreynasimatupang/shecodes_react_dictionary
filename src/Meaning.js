@@ -1,3 +1,4 @@
+import { keyboard } from "@testing-library/user-event/dist/keyboard";
 import React from "react";
 
 export default function Meaning(param) {
@@ -5,33 +6,35 @@ export default function Meaning(param) {
     if (ex.eg !== undefined) {
       return <i>"{ex.eg}"</i>;
     }
-    return <i></i>;
+    return "";
+  }
+
+  function Synonyms(sy) {
+    if (sy.syn !== undefined) {
+      return "synonyms";
+    }
+    return <br />;
   }
   return (
     <div className="Meaning">
       <h3>{param.meaning.partOfSpeech}</h3>
-      <ul>
-        {param.meaning.definitions.map(function (item, key) {
-          return (
-            <div>
-              <li key={key}>
-                {item.definition}
-                <br />
-                <br />
-                <Example eg={item.example} />
-              </li>
+      {param.meaning.definitions.map(function (item, key) {
+        return (
+          <div>
+            <div key={item} className="li">
+              {item.definition}
               <br />
-              <div className="container">
-                <div className="row">
-                  {item.synonyms.map(function (item, key) {
-                    return <div className="synonym col-4">{item}</div>;
-                  })}
-                </div>
+              <br />
+              <Example eg={item.example} />
+            </div>
+            <div className="container">
+              <div className="row">
+                <Synonyms syn={item.synonyms} />
               </div>
             </div>
-          );
-        })}
-      </ul>
+          </div>
+        );
+      })}
     </div>
   );
 }

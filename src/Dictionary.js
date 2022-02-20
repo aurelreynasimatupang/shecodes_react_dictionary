@@ -5,13 +5,15 @@ import Gallery from "./Gallery";
 
 export default function Dictionary() {
   const [word, setWord] = useState("");
-  const [defi, setDefinition] = useState({});
+  const [defi, setDefinition] = useState({ word: "" });
+  const [img, setImg] = useState([]);
 
   function handleKeywordChange(event) {
     setWord(event.target.value);
   }
 
   function showDefi(response) {
+    console.log(response.data);
     setDefinition({
       word: response.data[0].word,
       phonetics: response.data[0].phonetics,
@@ -19,11 +21,20 @@ export default function Dictionary() {
     });
   }
 
+  function showGall(response) {
+    console.log("Gallery");
+    console.log(response);
+  }
+
   function submit(event) {
     event.preventDefault();
+    let key = "563492ad6f91700001000001f84a1e01968f44b59b29eee146db0a50";
+    let url = `https://api.pexels.com/v1/search?query=${word}&orientation=square&size=small&per_page=3&page=1&api_keys=${key}`;
+    let headers = { Authorization: `Bearer${key}` };
     axios
       .get(`https://api.dictionaryapi.dev/api/v2/entries/en_US/${word}`)
       .then(showDefi);
+    axios.get(url, { headers: headers }).then(showGall);
   }
 
   return (
@@ -33,7 +44,7 @@ export default function Dictionary() {
         <input type="submit" className="submitbtn" />
       </form>
       <Definition word={defi} />
-      <Gallery word={defi} />
+      <Gallery image={img} />
     </div>
   );
 }

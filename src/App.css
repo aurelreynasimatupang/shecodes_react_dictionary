@@ -58,19 +58,18 @@ h1 {
   text-align: left;
 }
 
-li {
+.li {
   border: rgb(188, 183, 183) solid 2px;
   border-radius: 5px;
   background-color: rgb(240, 246, 246);
   padding: 20px;
-  list-style: none;
   transition: opacity 150ms ease;
   cursor: pointer;
   opacity: 0.7;
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
 }
 
-li:hover {
+.li:hover {
   opacity: 1;
 }
 
@@ -106,4 +105,8 @@ i {
 
 .listen:hover {
   background-color: rgb(240, 246, 246);
+}
+
+.Phonetics {
+  margin: 15px;
 }

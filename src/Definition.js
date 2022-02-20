@@ -3,7 +3,7 @@ import Meaning from "./Meaning";
 import Phonetics from "./Phonetics";
 
 export default function Definition(param) {
-  if (Object.keys(param.word).length !== 0) {
+  if (param.word.word !== "") {
     return (
       <div className="Definition">
         <h2>{param.word.word}</h2>
