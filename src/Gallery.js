@@ -2,5 +2,14 @@ import React from "react";
 import axios from "axios";
 
 export default function Gallery(param) {
-  return <div className="Gallery"></div>;
+  if (param.image.length !== 0 && param.image) {
+    return (
+      <div className="Gallery">
+        {param.image.map(function (item, key) {
+          return <img className="image" src={item.src.small} alt={item.alt} />;
+        })}
+      </div>
+    );
+  }
+  return "";
 }

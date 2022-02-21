@@ -13,7 +13,6 @@ export default function Dictionary() {
   }
 
   function showDefi(response) {
-    console.log(response.data);
     setDefinition({
       word: response.data[0].word,
       phonetics: response.data[0].phonetics,
@@ -22,15 +21,14 @@ export default function Dictionary() {
   }
 
   function showGall(response) {
-    console.log("Gallery");
-    console.log(response);
+    setImg(response.data.photos);
   }
 
   function submit(event) {
     event.preventDefault();
     let key = "563492ad6f91700001000001f84a1e01968f44b59b29eee146db0a50";
     let url = `https://api.pexels.com/v1/search?query=${word}&orientation=square&size=small&per_page=3&page=1&api_keys=${key}`;
-    let headers = { Authorization: `Bearer${key}` };
+    let headers = { Authorization: `Bearer ${key}` };
     axios
       .get(`https://api.dictionaryapi.dev/api/v2/entries/en_US/${word}`)
       .then(showDefi);
