@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 
 export default function Gallery(param) {
   if (param.image.length !== 0 && param.image) {
